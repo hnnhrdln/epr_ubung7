@@ -4,3 +4,4 @@ __author__ = "5641727, Redelin, 6544078, Kervella"
 from epr_ubung7.init.crm import Crm
 
 if __name__ == "__main__":
+    crm = Crm() 

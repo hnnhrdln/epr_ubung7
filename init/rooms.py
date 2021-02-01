@@ -11,7 +11,7 @@ class Rooms:
         #kind_of_room
         #vacant
         #booked_by
-        
+        #has_key:
 
 
     #standard prpoerties

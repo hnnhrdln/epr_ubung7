@@ -7,14 +7,16 @@ tenloses Frühstück, freien Eintritt ins SPAR, kostenloser Zimmerupgrade falls 
 Zimmer frei sind ... Ihre Entscheidung)."""
 
 class Crm:
-    def __init__ (self):
-        #bla the logic of this thing
-        #data structure for client handling
-        
-        #customer_id : maybe hash of name/unique
-        #number_of_bookings
-        #vip : bool
-        #etc...
+    def __init__ (self, name):
+        # the logic of this thing
+        # data structure for client handling
+    
+        self.name = name # when initializing a customer only name is given first
+        self.customer_id # maybe has of customer name
+        self.vip = False # default false
+        self.room_id
+        self.has_key
+        self.booked_time
 
 
     #standard prpoerties
