@@ -5,3 +5,8 @@ gen"""
 
 #hier quasi die buchungslogik
 import tkinter
+
+class Booking:
+
+    def __init__(self):
+        print("Hi")

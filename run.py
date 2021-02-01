@@ -1,7 +1,9 @@
 __author__ = "5641727, Redelin, 6544078, Kervella"
 """main"""
 
-from epr_ubung7.init.crm import Crm
+from init.crm import Crm
+from init.booking import Booking
 
 if __name__ == "__main__":
-    crm = Crm() 
+    crm = Crm('Peter') 
+    booking = Booking()

@@ -12,22 +12,26 @@ class Crm:
         # data structure for client handling
     
         self.name = name # when initializing a customer only name is given first
-        self.customer_id # maybe has of customer name
+        self.customer_id = None # maybe has of customer name
         self.vip = False # default false
-        self.room_id
-        self.has_key
-        self.booked_time
-
+        self.room_id = None
+        self.has_key = False
+        self.booked_time = []
 
     #standard prpoerties
-    def get():
+    def get(self):
+        print("Hallo")
         #get customer/attribute
 
-    def set():
+    #def set(self):
         #set costomer/attribute
 
-    def update():
+    def update(self):
+        print("Schmallo")
+
         #update customer attribute
 
-    def delete():
+    def delete(self):
+        print("Pallo")
+
         #delete customer attribute
