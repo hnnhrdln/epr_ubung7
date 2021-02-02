@@ -6,6 +6,9 @@ gen"""
 #hier quasi die buchungslogik
 import tkinter as tk
 
+"""vielleicht im ersten fenster sehen welche räume wann zur verfügung stehen, dann auswählen und im nächsten window
+angaben machen"""
+
 class Demo1:
     def __init__(self, master):
         self.master = master

@@ -13,16 +13,3 @@ class Rooms:
         #booked_by
         #has_key:
 
-
-    #standard prpoerties
-    def get():
-        #get customer/attribute
-
-    def set():
-        #set costomer/attribute
-
-    def update():
-        #update customer attribute
-
-    def delete():
-        #delete customer attribute
