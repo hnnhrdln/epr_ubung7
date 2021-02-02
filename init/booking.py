@@ -5,33 +5,92 @@ gen"""
 
 #hier quasi die buchungslogik
 import tkinter as tk
+from tkinter import ttk
+from tkcalendar import Calendar,DateEntry
+import datetime
 
 """vielleicht im ersten fenster sehen welche räume wann zur verfügung stehen, dann auswählen und im nächsten window
 angaben machen"""
 
-class Demo1:
-    def __init__(self, master):
-        self.master = master
-        self.frame = tk.Frame(self.master)
-        self.button1 = tk.Button(self.frame, text = 'New Window', width = 25, command = self.new_window)
-        self.button1.pack()
-        self.frame.pack()
-    def new_window(self):
-        self.newWindow = tk.Toplevel(self.master)
-        self.app = Demo2(self.newWindow)
 
 class Demo2:
-    def __init__(self, master):
-        self.master = master
-        self.frame = tk.Frame(self.master)
-        self.quitButton = tk.Button(self.frame, text = 'Quit', width = 25, command = self.close_windows)
-        self.quitButton.pack()
+    def __init__(self, root):
+        self.root = root
+
+        self.frame = tk.Frame(self.root)
+        self.frame_bottom = tk.Frame(self.root)
+
+        self.quit_button = tk.Button(self.frame, text = 'Quit', width = 25, command = self.close_windows)
+        self.calendar_button = tk.Button(self.frame, text = "Calendar", command = self.calendar)
+        self.enter_person = tk.Button(self.frame, text = "Enter Your Info", command = self.enter_info)
+
+        self.quit_button.pack(side= "bottom")
+        self.calendar_button.pack()
+        self.enter_person.pack()
         self.frame.pack()
+
+    def enter_info(self):
+        name_var = tk.StringVar()
+        email_var = tk.StringVar()
+
+        def submit():
+            name=name_var.get()
+            email = email_var.get()
+            print("Name entered " +name)
+            print("Email entered " +email)
+
+            name_var.set("")
+            email_var.set("")  
+
+        window = tk.Toplevel(self.root)
+        
+
+        name_label = tk.Label(window, text = "Your Name")
+        name_entry = tk.Entry(window, textvariable = name_var)
+        email_label = tk.Label(window, text = "Your Email Adress")
+        email_entry = tk.Entry(window, textvariable = email_var)
+
+        submit_btn=tk.Button(window,text = 'Submit', command = submit)
+
+        name_label.pack(side = "left")
+        name_entry.pack()
+        email_label.pack(side = "left")
+        email_entry.pack()
+
+        submit_btn.pack()
+
+
+
+
     def close_windows(self):
-        self.master.destroy()
+        self.root.destroy()
+
+    def calendar(self):
+        def print_sel():
+            print(cal.selection_get())
+            cal.see(datetime.date(year=2021, month=2, day=2))
+
+        top = tk.Toplevel(self.root)
+
+        today = datetime.date.today()
+
+        maxdate = datetime.date(year=2022, month=1, day=1)
+        mindate = today + datetime.timedelta(days=5)
+        print(mindate, maxdate)
+
+        cal = Calendar(top, font="Arial 14", selectmode='day', locale='en_US',
+                    mindate=mindate, maxdate=maxdate, disabledforeground='red',
+                    cursor="hand1", year=2018, month=2, day=5)
+        cal.pack(fill="both", expand=True)
+        ttk.Button(top, text="ok", command=print_sel).pack()
+
 
 def main(): 
     root = tk.Tk()
-    app = Demo1(root)
+    Demo2(root)
     root.mainloop()
+
+if __name__ == '__main__':
+    main()
+
 
