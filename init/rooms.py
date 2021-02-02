@@ -1,17 +1,7 @@
+
 __author__ = "5641727, Redelin, 6544078, Kervella"
 """Zimmerverwaltung (Zimmerart (Suite, DZ, EZ, ...), Belegung, Zuordnung zu Kunden, freie Zim-
 mer für einen bestimmten Zeitraum anzeigen)"""
-
-class Rooms:
-    def __init__ (self):
-        #bla the logic of this thing
-        #data structure for room handling
-        
-        #room_id : maybe hash of name/unique
-        #kind_of_room
-        #vacant
-        #booked_by
-        #has_key:
 
 # Ab hier sind meine Vorschläge
 
@@ -62,18 +52,19 @@ rooms = initialise_room()
 free_rooms = check_room(rooms)[0]
 booked_rooms = check_room(rooms)[1]
 
+"""
+while True:  #zum testen     
+    print("----------------")    #Übersicht
+    print("Rooms:\n", rooms)
+    print("----------------")
+    print("Free rooms:\n", free_rooms)
+    print("----------------")
+    print("Booked rooms:\n", booked_rooms)
+    print("----------------")
 
-    
-print("----------------")    #Übersicht
-print("Rooms:\n", rooms)
-print("----------------")
-print("Free rooms:\n", free_rooms)
-print("----------------")
-print("Booked rooms:\n", booked_rooms)
-print("----------------")
 
-while True:  #zum testen 
     booking()
     free_rooms = check_room(rooms)[0]
     booked_rooms = check_room(rooms)[1]
     print(booked_rooms)
+    """

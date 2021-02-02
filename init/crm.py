@@ -6,32 +6,46 @@ es verschiedene Vorteile (überlegen Sie selbst welche, als Idee: Vergünstigung
 tenloses Frühstück, freien Eintritt ins SPAR, kostenloser Zimmerupgrade falls entsprechende
 Zimmer frei sind ... Ihre Entscheidung)."""
 
+import sqlite3 as sl
+
 class Crm:
-    def __init__ (self, name):
-        # the logic of this thing
-        # data structure for client handling
-    
-        self.name = name # when initializing a customer only name is given first
-        self.customer_id = None # maybe has of customer name
-        self.vip = False # default false
-        self.room_id = None
-        self.has_key = False
-        self.booked_time = []
+    """ class that defines CRM database."""
 
-    #standard prpoerties
-    def get(self):
-        print("Hallo")
-        #get customer/attribute
+    def __init__(self):
+        """ Creates SQLite connector to crm.db database and cursor to manage sql execution"""
 
-    #def set(self):
-        #set costomer/attribute
+        self.con = sl.connect('crm.db')
+        self.cursor = self.con.cursor()
 
-    def update(self):
-        print("Schmallo")
+    def close_table(self):
+        """ Closes table"""
 
-        #update customer attribute
+        dropTableStatement = "DROP TABLE USER"
+        self.cursor.execute(dropTableStatement)
+        self.con.close()
 
-    def delete(self):
-        print("Pallo")
+    def create_table(self):
+        """ Creates Table"""
 
-        #delete customer attribute
+        self.cursor.execute("""
+            CREATE TABLE USER (
+                name TEXT,
+                email TEXT NOT NULL PRIMARY KEY
+            );
+        """)
+
+    def insert_name(self, name, email):
+        """ To initialize new user"""
+
+        sql = 'INSERT INTO USER (name, email) values(?, ?)'
+        data = (name, email)
+        
+        self.cursor.execute(sql, data)
+
+    def get_entry_by_email(self, email):
+        """ Email is unique key. Retrieves user info by email adress"""
+
+        mail = (email,)
+        data = self.cursor.execute("SELECT * FROM USER WHERE email == ?", mail)
+        for row in data:
+            print("This is the row with email "+ email+": "+str(row))

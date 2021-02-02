@@ -5,5 +5,4 @@ from init.crm import Crm
 import init.booking as booking
 
 if __name__ == "__main__":
-    crm = Crm('Peter') 
     booking.main()
