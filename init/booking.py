@@ -40,27 +40,20 @@ class Demo2:
             print("Email entered " +email)
 
             name_var.set("")
-            email_var.set("")  
+            email_var.set("")
+
+            window.destroy()  
 
         window = tk.Toplevel(self.root)
         
+        tk.Label(window, text = "Please enter your information").grid(row=0,column = 0)
+        tk.Label(window, text = "Your Name").grid(row = 1, column = 0)
+        tk.Entry(window, textvariable = name_var).grid(row = 1, column = 1)
+        tk.Label(window, text = "Your Email Adress").grid(row = 2, column = 0)
+        tk.Entry(window, textvariable = email_var).grid(row = 2, column = 1)
 
-        name_label = tk.Label(window, text = "Your Name")
-        name_entry = tk.Entry(window, textvariable = name_var)
-        email_label = tk.Label(window, text = "Your Email Adress")
-        email_entry = tk.Entry(window, textvariable = email_var)
-
-        submit_btn=tk.Button(window,text = 'Submit', command = submit)
-
-        name_label.pack(side = "left")
-        name_entry.pack()
-        email_label.pack(side = "left")
-        email_entry.pack()
-
-        submit_btn.pack()
-
-
-
+        tk.Button(window,text = 'Submit', command = submit).grid(row = 3, column = 0)
+        
 
     def close_windows(self):
         self.root.destroy()
