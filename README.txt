@@ -25,7 +25,7 @@ abc@def | Peter |   2           | 300   |
 
 day     | room  | booked  | employee| booked_by |
 -------------------------------------------------
-2021-1-2| 101   |  1   | Frank   | abc@def   |
+2021-1-2| 101   |  1      | Frank   | abc@def   |
 ...
 -> SQLite hat kein Bool. 0=false, 1=true
 -> im kalender farblich darstellen an welchen tagen booked == false, also der raum frei ist
