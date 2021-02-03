@@ -28,9 +28,11 @@ class Crm:
         """ Creates Table"""
 
         self.cursor.execute("""
-            CREATE TABLE USER (
-                name TEXT,
+            CREATE TABLE IF NOT EXISTS USER (
+                name TEXT NOT NULL,
                 email TEXT NOT NULL PRIMARY KEY
+                number_stays INTEGER DEFAULT 0,
+                bill NUMERIC DEFAULT 0,                
             );
         """)
 
