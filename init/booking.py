@@ -81,7 +81,6 @@ class Booking:
              value = e['number'], variable= selected, command = bla)
             R.pack()
 
-
     def close_windows(self):
         """ Closes window. Stops programm execution."""
 
