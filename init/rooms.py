@@ -47,14 +47,15 @@ def booking():
                 print("The room is already booked!")
             else:
                 x['booked'] = True
+                print("The room you picked is now booked!")
 
 rooms = initialise_room()
 free_rooms = check_room(rooms)[0]
 booked_rooms = check_room(rooms)[1]
 
 """
-while True:  #zum testen     
-    print("----------------")    #Übersicht
+while True:  #Trial for user Interface      
+    print("----------------")    
     print("Rooms:\n", rooms)
     print("----------------")
     print("Free rooms:\n", free_rooms)
