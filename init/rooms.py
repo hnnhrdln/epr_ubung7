@@ -6,7 +6,7 @@ mer für einen bestimmten Zeitraum anzeigen)"""
 # Ab hier sind meine Vorschläge
 
 def initialise_room():
-    """Initialization of all the rooms, only at the beginning
+    """Initialisation of all the rooms, only at the beginning
     """
     rooms =[]    
     for i in range (1,5):
