@@ -17,10 +17,17 @@ class empl_databank:
                 )""")
 
     def insert_emp(emp):
+        """Insert employee into databank
+        emp: tuple
+        """
         with sqlite3.connect('employee_database.db'):
             sqlite3.connect('employee_database.db').cursor().execute("INSERT INTO employees VALUES (:ID, :first, :last, :role)", {'ID': emp.ID, 'first': emp.first, 'last': emp.last, 'role': emp.role})
 
     def update_role(emp, role):
+        """update an employees' role
+        emp: tuple
+        role: string
+        """
         with sqlite3.connect('employee_database.db'):
             sqlite3.connect('employee_database.db').cursor().execute("""UPDATE employees SET role = :role
                         WHERE ID = :ID """,
@@ -28,19 +35,29 @@ class empl_databank:
 
 
     def get_empl_by_ID(IDs):
+        """returns an employees' data
+        ID: string
+        """
         sqlite3.connect('employee_database.db').cursor().execute("SELECT * FROM employees WHERE ID = :ID", {'ID': IDs})
         return sqlite3.connect('employee_database.db').cursor().fetchall()
 
     def remove_emp(emp):
+        """removes an employee from the batabank
+        emp: tuple
+        """
         with sqlite3.connect('employee_database.db'):
             sqlite3.connect('employee_database.db').cursor().execute("DELETE from employees WHERE ID = :ID",{'ID': emp.ID})
 
     def new_employee():
+        """create a new employee
+        """
         new_emp = Employee(input("ID: "), input("Firstname: "), input("Lastname: "), input("Role: "))
         return new_emp
         
 
     def add_emp():
+        """reunites two functions from above to gain time whilst refering to them
+        """
         new_emp = empl_databank.new_employee()
         empl_databank.insert_emp(new_emp)
 
