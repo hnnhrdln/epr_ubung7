@@ -32,15 +32,28 @@ def remove_emp(emp):
     with conn:
         c.execute("DELETE from employees WHERE ID = :ID",{'ID': emp.ID})
 
+def new_employee():
+    new_emp = Employee(input("ID: "), input("Firstname: "), input("Lastname: "), input("Role: "))
+    return new_emp
+    
 
-emp_1 = Employee('75A', 'John', 'Doe', 'Deskmanager')
-emp_2 = Employee('89P', 'Fred', 'Parker', 'Frontdesk')
+def add_emp():
+    new_emp = new_employee()
+    insert_emp(new_emp)
 
-insert_emp(emp_1)
-insert_emp(emp_2)
+    
+def close_table():
+        """ Closes table"""
 
-empl = get_empl_by_ID('75A')
+        conn.close()
+        print("The Databank has been closed.")
+        print("If you want to add a new person to the system, please restart the Class.")
+
+
+empl = get_empl_by_ID('68')
 print(empl)
 
 
-conn.close()
+
+
+
