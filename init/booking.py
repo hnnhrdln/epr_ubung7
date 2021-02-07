@@ -11,8 +11,8 @@ import datetime
 import rooms
 from crm import Crm
 
-"""vielleicht im ersten fenster sehen welche räume wann zur verfügung stehen, dann auswählen und im nächsten window
-angaben machen"""
+#vielleicht im ersten fenster sehen welche räume wann zur verfügung stehen, dann auswählen und im nächsten window
+#angaben machen
 
 
 class Booking:
