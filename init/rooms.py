@@ -11,13 +11,13 @@ def initialise_room():
     rooms =[]    
     for i in range (1,5):
         for x in range (1,4):
-            if x == 2:
+            if x == 2:              #Double rooms
                 room = {'number': i*100+x, 'sort': 'dual', 'booked': False}
                 rooms.append(room)
-            elif x == 3:
+            elif x == 3:            #Suite
                 room = {'number': i*100+x, 'sort': 'suite', 'booked': False}
                 rooms.append(room)     
-            else:
+            else:                   #Individual rooms
                 room = {'number': i*100+x, 'sort': 'indiv', 'booked': False}
                 rooms.append(room)      
     return rooms
